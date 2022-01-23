@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0307F01827899AF400D1759F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F01727899AF400D1759F /* ProjectView.swift */; };
-		0307F01A2789A30500D1759F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F0192789A30500D1759F /* AppState.swift */; };
+		0307F01A2789A30500D1759F /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F0192789A30500D1759F /* MainVM.swift */; };
 		0307F01C2789B45400D1759F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F01B2789B45400D1759F /* Helper.swift */; };
 		0307F01E2789C0CB00D1759F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F01D2789C0CB00D1759F /* SettingsView.swift */; };
+		031BF86C279921C100AB2876 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031BF86B279921C100AB2876 /* SidebarView.swift */; };
+		031BF870279B8BE500AB2876 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031BF86F279B8BE500AB2876 /* Constant.swift */; };
+		031BF872279CC69E00AB2876 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031BF871279CC69E00AB2876 /* DefaultView.swift */; };
 		035C98C7278DEB7700B972BF /* UtilCmdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035C98C6278DEB7700B972BF /* UtilCmdView.swift */; };
 		035C98C9278F0CB500B972BF /* CmdState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035C98C8278F0CB500B972BF /* CmdState.swift */; };
 		036A7B172770910F00F96B0D /* rmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A7B162770910F00F96B0D /* rmaApp.swift */; };
@@ -21,9 +24,12 @@
 
 /* Begin PBXFileReference section */
 		0307F01727899AF400D1759F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
-		0307F0192789A30500D1759F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		0307F0192789A30500D1759F /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVM.swift; path = ../MainVM.swift; sourceTree = "<group>"; };
 		0307F01B2789B45400D1759F /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0307F01D2789C0CB00D1759F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		031BF86B279921C100AB2876 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		031BF86F279B8BE500AB2876 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		031BF871279CC69E00AB2876 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
 		035C98C6278DEB7700B972BF /* UtilCmdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilCmdView.swift; sourceTree = "<group>"; };
 		035C98C8278F0CB500B972BF /* CmdState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmdState.swift; sourceTree = "<group>"; };
 		036A7B132770910F00F96B0D /* Run my app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run my app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +52,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031BF8672799203200AB2876 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0307F0192789A30500D1759F /* MainVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		031BF86A279921B300AB2876 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				036A7B182770910F00F96B0D /* MainView.swift */,
+				031BF86B279921C100AB2876 /* SidebarView.swift */,
+				0307F01727899AF400D1759F /* ProjectView.swift */,
+				035C98C6278DEB7700B972BF /* UtilCmdView.swift */,
+				0307F01D2789C0CB00D1759F /* SettingsView.swift */,
+				031BF871279CC69E00AB2876 /* DefaultView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		036A7B0A2770910F00F96B0D = {
 			isa = PBXGroup;
 			children = (
@@ -65,18 +92,16 @@
 		036A7B152770910F00F96B0D /* rma */ = {
 			isa = PBXGroup;
 			children = (
+				031BF86A279921B300AB2876 /* View */,
+				031BF8672799203200AB2876 /* ViewModel */,
 				036A7B252771B25800F96B0D /* Info.plist */,
 				036A7B162770910F00F96B0D /* rmaApp.swift */,
-				036A7B182770910F00F96B0D /* MainView.swift */,
 				036A7B1A2770911000F96B0D /* Assets.xcassets */,
 				036A7B1F2770911000F96B0D /* rma.entitlements */,
 				036A7B1C2770911000F96B0D /* Preview Content */,
-				0307F01727899AF400D1759F /* ProjectView.swift */,
-				0307F0192789A30500D1759F /* AppState.swift */,
 				0307F01B2789B45400D1759F /* Helper.swift */,
-				0307F01D2789C0CB00D1759F /* SettingsView.swift */,
-				035C98C6278DEB7700B972BF /* UtilCmdView.swift */,
 				035C98C8278F0CB500B972BF /* CmdState.swift */,
+				031BF86F279B8BE500AB2876 /* Constant.swift */,
 			);
 			path = rma;
 			sourceTree = "<group>";
@@ -165,8 +190,11 @@
 				035C98C7278DEB7700B972BF /* UtilCmdView.swift in Sources */,
 				0307F01E2789C0CB00D1759F /* SettingsView.swift in Sources */,
 				036A7B172770910F00F96B0D /* rmaApp.swift in Sources */,
+				031BF86C279921C100AB2876 /* SidebarView.swift in Sources */,
 				035C98C9278F0CB500B972BF /* CmdState.swift in Sources */,
-				0307F01A2789A30500D1759F /* AppState.swift in Sources */,
+				031BF872279CC69E00AB2876 /* DefaultView.swift in Sources */,
+				0307F01A2789A30500D1759F /* MainVM.swift in Sources */,
+				031BF870279B8BE500AB2876 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

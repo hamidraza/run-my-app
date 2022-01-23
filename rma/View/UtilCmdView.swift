@@ -1,10 +1,3 @@
-//
-//  UtilCmdView.swift
-//  cldr
-//
-//  Created by Hamid on 11/01/22.
-//
-
 import SwiftUI
 
 struct UtilCmdView: View {

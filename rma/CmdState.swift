@@ -1,10 +1,3 @@
-//
-//  CmdState.swift
-//  cldr
-//
-//  Created by Hamid on 12/01/22.
-//
-
 import Foundation
 
 enum UtilCmd {
@@ -12,7 +5,7 @@ enum UtilCmd {
 }
 
 class Cmd: ObservableObject, Identifiable {
-    var id = UUID()
+    var id = UUID().uuidString
     
     @Published var task: Process
     @Published var logs: [LogLine] = []

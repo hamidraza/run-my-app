@@ -1,13 +1,8 @@
-//
-//  ProjectView.swift
-//  cldr
-//
-//  Created by Hamid on 08/01/22.
-//
-
 import SwiftUI
 
 struct ProjectView: View {
+    @EnvironmentObject var mainData: MainVM
+
     @ObservedObject var project: ProjectItem
     @State private var npmScript: String = "start"
     @State private var staticPort: String = "8000"
@@ -32,15 +27,17 @@ struct ProjectView: View {
         .navigationTitle(project.formattedPath)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
+                
                 if project.type == .node {
                     HStack {
-                        Text("Script")
                         Picker("Script", selection: $npmScript) {
-                            ForEach(project.npmScripts.sorted(by: >), id: \.key) { key, value in
-                                HStack {
-                                    Text(key)
-                                    Text(value)
-                                }.tag(key)
+                            Section(header: Text("Scripts")) {
+                                ForEach(project.npmScripts.sorted(by: >), id: \.key) { key, value in
+                                    HStack {
+                                        Text(key)
+                                        Text(value)
+                                    }.tag(key)
+                                }
                             }
                         }
                     }
@@ -53,18 +50,35 @@ struct ProjectView: View {
                             .frame(minWidth: 60)
                     }
                 }
+
                 Button(action: handleStartStopTask, label: {
                     Label("Run", systemImage: project.isRunning ? "stop.fill" : "play.fill")
                 })
-//                Menu {
-//                    Button {
-//                        print("Menu")
-//                    } label: {
-////                        Label("Menu")
-//                        Label("Menu", systemImage: "slider.horizontal.3")
-//                    }
-//
-//                }
+                
+                HStack {
+                    Text("")
+                        .frame(width: 32)
+                }
+                
+                Menu {
+                    Section(header: Text("Open with")) {
+                        ForEach(Constant.openWithAppList, id: \.id) { id, label in
+                            if let app = Helper.urlForApplication(withBundleIdentifier: id) {
+                                Button(label) { _ = Helper.openWithApp(app: app, dir: project.path) }
+                            }
+                        }
+                    }
+                    Divider()
+                    Section(header: Text("Actions")) {
+                        Button(role: .destructive, action: {
+                            self.mainData.removeProject(id: self.project.id)
+                        }) {
+                            Label("Remove project", systemImage: "trash")
+                        }.disabled(self.project.isRunning)
+                    }
+                } label: {
+                    Label("Menu", systemImage: "ellipsis.circle")
+                }
             }
         }
     }

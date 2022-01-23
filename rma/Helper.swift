@@ -119,4 +119,12 @@ class Helper{
         let result = self.shell(["which \(cmd)"]).trimmingCharacters(in: .whitespacesAndNewlines)
         return result != "" && result != "\(cmd) not found"
     }
+    
+    static func urlForApplication(withBundleIdentifier bundleID: String) -> URL? {
+        return NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID)
+    }
+    
+    static func openWithApp(app: URL, dir: String) -> String {
+        return self.shell(["open \(dir) -a \(app.path.replacingOccurrences(of: " ", with: "\\ "))"])
+    }
 }
