@@ -9,7 +9,7 @@ jobs:
         name: test RMA
         uses: sersoft-gmbh/xcodebuild-action@v1
         with:
-          project: "Run My App.xcodeproj"
+          project: "Run My App.xcworkspace"
           scheme: "Run My App"
           destination: platform=macOS
           action: build
