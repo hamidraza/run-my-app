@@ -4,7 +4,18 @@ enum UtilCmd {
     case lsof, kill
 }
 
-class Cmd: ObservableObject, Identifiable {
+class LogLine: Identifiable {
+    var id = UUID()
+    var text: String
+    var isError: Bool
+
+    init(_ text: String, isError: Bool = false) {
+        self.text = text
+        self.isError = isError
+    }
+}
+
+class CmdModel: ObservableObject, Identifiable {
     var id = UUID().uuidString
     
     @Published var task: Process
