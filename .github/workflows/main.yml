@@ -1,0 +1,15 @@
+name: RMA MacOS
+on: [push]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      -
+        name: test RMA
+        uses: sersoft-gmbh/xcodebuild-action@v1
+        with:
+          project: "Run My App.xcodeproj"
+          scheme: "Run My App"
+          destination: platform=macOS
+          action: build
