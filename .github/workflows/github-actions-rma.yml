@@ -1,0 +1,19 @@
+name: RMA MacOS
+on: [push]
+jobs:
+  build-rma:
+    runs-on: macos-latest
+    steps:
+      uses: "manojkarthick/macos-universal-binary-action@beta"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        owner: "manojkarthick"
+        repo: "amalgam"
+        tag: "1.0.4"
+        amd64: "darwin-amd64"
+        arm64: "darwin-arm64"
+        compressed: "true"
+        binary-path: "amalgam"
+        overwrite: "true"
+        universal-identifier: "all"
