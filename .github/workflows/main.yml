@@ -40,10 +40,6 @@ jobs:
           # apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-      
-      # - name: Build app
-      #   run: |
-      #     xcodebuild -workspace Run\ My\ App.xcworkspace -scheme "Run My App" -destination platform=macOS build
 
       - name: "Archive"
         uses: devbotsxyz/xcode-archive@v1
@@ -71,3 +67,10 @@ jobs:
 
       - name: Package for Distribution
         run: ditto -V -c -k --keepParent "Export/Run My App.app" "Run My App.zip"
+
+      - name: Release app
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Run My App.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
