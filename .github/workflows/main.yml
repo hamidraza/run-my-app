@@ -1,5 +1,9 @@
 name: RMA MacOS
-on: [push]
+
+on:
+  push:
+    tags:
+      - "*.*.*"
 
 jobs:
   build:
