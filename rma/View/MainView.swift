@@ -5,13 +5,6 @@ struct Line: Identifiable {
     let text: String
 }
 
-struct AlertItem: Identifiable {
-    var id = UUID()
-    var title: Text
-    var message: Text?
-    var dismissButton: Alert.Button?
-}
-
 struct MainView: View {
     @StateObject var mainData = MainVM()
     @State private var alertItem: AlertItem?

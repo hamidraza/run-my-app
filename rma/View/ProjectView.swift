@@ -24,6 +24,7 @@ struct ProjectView: View {
                 scrollValue.scrollTo(project.logs.last?.id)
             }
         }
+        .frame(minWidth: 600, minHeight: 400)
         .navigationTitle(project.formattedPath)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
